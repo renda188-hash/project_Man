@@ -2,7 +2,6 @@ import streamlit as st
 from supabase import create_client
 import pandas as pd
 import time
-streamlit-option-menu
 from streamlit_option_menu import option_menu
 # --- 1. 连接数据库 ---
 try:
