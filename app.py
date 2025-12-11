@@ -2,6 +2,7 @@ import streamlit as st
 from supabase import create_client
 import pandas as pd
 import time
+streamlit-option-menu
 from streamlit_option_menu import option_menu
 # --- 1. 连接数据库 ---
 try:
@@ -134,3 +135,4 @@ elif menu == "🔧 管理员后台":
                 st.dataframe(users_df, use_container_width=True)
             except:
                 st.info("暂无数据")
+
