@@ -2,7 +2,7 @@ import streamlit as st
 from supabase import create_client
 import pandas as pd
 import time
-
+from streamlit_option_menu import option_menu
 # --- 1. 连接数据库 ---
 try:
     url = st.secrets["SUPABASE_URL"]
@@ -41,7 +41,21 @@ def get_users():
 st.set_page_config(page_title="项目管理系统", page_icon="🎓", layout="centered")
 
 # 侧边栏导航
-menu = st.sidebar.radio("请选择功能：", ["📝 同学登记/看项目", "🔧 管理员后台"])
+with st.sidebar:
+    # 这里的 icons 参考 Bootstrap Icons 名称
+    choice = option_menu(
+        "项目大厅",  # 菜单标题
+        ["同学登记/看项目", "管理员后台"],  # 选项列表
+        icons=['pencil-square', 'gear'],  # 对应的图标
+        menu_icon="cast", # 菜单顶部的大图标
+        default_index=0,
+        styles={
+            "container": {"padding": "5!important", "background-color": "#fafafa"},
+            "icon": {"color": "orange", "font-size": "25px"}, 
+            "nav-link": {"font-size": "16px", "text-align": "left", "margin":"0px", "--hover-color": "#eee"},
+            "nav-link-selected": {"background-color": "#02ab21"},
+        }
+    )
 
 if menu == "📝 同学登记/看项目":
     st.title("🎓 项目大厅")
