@@ -43,7 +43,7 @@ st.set_page_config(page_title="项目管理系统", page_icon="🎓", layout="ce
 # 侧边栏导航
 with st.sidebar:
     # 这里的 icons 参考 Bootstrap Icons 名称
-    choice = option_menu(
+     menu = option_menu(
         "项目大厅",  # 菜单标题
         ["同学登记/看项目", "管理员后台"],  # 选项列表
         icons=['pencil-square', 'gear'],  # 对应的图标
@@ -134,4 +134,5 @@ elif menu == "🔧 管理员后台":
                 st.dataframe(users_df, use_container_width=True)
             except:
                 st.info("暂无数据")
+
 
